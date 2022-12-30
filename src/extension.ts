@@ -1,24 +1,25 @@
 import * as vscode from 'vscode';
 import { Configuration, OpenAIApi } from 'openai';
 
+import createPrompt from './prompt';
+
 
 type AuthInfo = {apiKey?: string};
-type Settings = {selectedInsideCodeblock?: boolean, pasteOnClick?: boolean, model?: string, maxTokens?: number, temperature?: number};
+export type Settings = {selectedInsideCodeblock?: boolean, pasteOnClick?: boolean, model?: string, maxTokens?: number, temperature?: number};
 
 
 export function activate(context: vscode.ExtensionContext) {
-	// Get the API session token from the extension's configuration
-	const config = vscode.workspace.getConfiguration('chatgpt');
-
+	
 	// Create a new CodeGPTViewProvider instance and register it with the extension's context
 	const provider = new CodeGPTViewProvider(context.extensionUri);
-
+	
+	// Get the API session token from the extension's configuration
+	const config = vscode.workspace.getConfiguration('codegpt');
 	// Put configuration settings into the provider
 	provider.setAuthenticationInfo({
 		apiKey: config.get('apiKey')
 	});
 
-	console.log(config.get('apiKey'));
 	provider.setSettings({
 		selectedInsideCodeblock: config.get('selectedInsideCodeblock') || false,
 		pasteOnClick: config.get('pasteOnClick') || false,
@@ -54,7 +55,7 @@ export function activate(context: vscode.ExtensionContext) {
 	);
 
 
-	// Change the extension's session token or settings when configuration is changed
+	// Change the extension's settings when configuration is changed
 	vscode.workspace.onDidChangeConfiguration((event: vscode.ConfigurationChangeEvent) => {
 		if (event.affectsConfiguration('codegpt.apiKey')) {
 			const config = vscode.workspace.getConfiguration('codegpt');
@@ -123,7 +124,7 @@ class CodeGPTViewProvider implements vscode.WebviewViewProvider {
 	// This private method initializes a new ChatGPTAPI instance, using the session token if it is set
 	private _newAPI() {
 		if (!this._apiConfiguration || !this._apiKey) {
-			console.warn("Session token or Clearance token not set, please go to extension settings (read README.md for more info)");
+			console.warn("API key not set, please go to extension settings (read README.md for more info)");
 		}else{
 			this._openai = new OpenAIApi(this._apiConfiguration);
 		}
@@ -204,19 +205,7 @@ class CodeGPTViewProvider implements vscode.WebviewViewProvider {
 		// Get the selected text of the active editor
 		const selection = vscode.window.activeTextEditor?.selection;
 		const selectedText = vscode.window.activeTextEditor?.document.getText(selection);
-		let searchPrompt = '';
-
-		if (selection && selectedText) {
-			// If there is a selection, add the prompt and the selected text to the search prompt
-			if (this._settings.selectedInsideCodeblock) {
-				searchPrompt = `${prompt}\n\`\`\`\n${selectedText}\n\`\`\``;
-			} else {
-				searchPrompt = `${prompt}\n${selectedText}\n`;
-			}
-		} else {
-			// Otherwise, just use the prompt if user typed it
-			searchPrompt = prompt;
-		}
+		let searchPrompt = createPrompt(prompt, this._settings, selectedText);
 		this._fullPrompt = searchPrompt;
 
 		if (!this._openai) {
@@ -242,15 +231,21 @@ class CodeGPTViewProvider implements vscode.WebviewViewProvider {
 					model: this._settings.model || 'code-davinci-002',
 					prompt: searchPrompt,
 					temperature: this._settings.temperature,
-					max_tokens: this._settings.maxTokens
+					max_tokens: this._settings.maxTokens,
+					stop: ['USER: ', 'USER', 'ASSISTANT']
 				});
 
 				if (this._currentMessageNumber !== currentMessageNumber) {
 					return;
 				}
 
+
 				response = completion.data.choices[0].text || '';
-				response += `\n\n---\nFinish reason: ${completion.data.choices[0].finish_reason} \t Tokens used: ${completion.data.usage?.total_tokens}`;
+				response += `\n\n---\n`;
+				if (completion.data.choices[0].finish_reason === 'length') {
+					response += `\n[WARNING] The response was truncated because it reached the maximum number of tokens. You may want to increase the maxTokens setting.`;
+				}
+				response += `Tokens used: ${completion.data.usage?.total_tokens}`;
 
 			} catch (error:any) {
 				let e = '';

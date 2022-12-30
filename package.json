@@ -156,13 +156,13 @@
         },
         "codegpt.maxTokens": {
           "type": "number",
-          "default": "500",
+          "default": 500,
           "description": "Maximum number of tokens per request",
           "order": 2
         },
         "codegpt.temperature": {
           "type": "number",
-          "default": "0.5",
+          "default": 0.7,
           "description": "Temperature to use for the GPT3 (between 0 (conservative) and 1 (creative))",
           "order": 3
         },
