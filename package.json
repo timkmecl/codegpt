@@ -1,7 +1,7 @@
 {
   "name": "codegpt",
   "displayName": "CodeGPT: write and improve code using AI",
-  "description": "Use GPT3 right inside the IDE to enhance and automate your coding with AI-powered assistance (unofficial)",
+  "description": "Use GPT3 right inside the IDE to enhance and automate your coding with AI-powered assistance",
   "version": "1.0.0",
   "publisher": "timkmecl",
   "icon": "resources/extensionIcon.png",
@@ -159,12 +159,12 @@
         "codegpt.model": {
           "type": "string",
           "enum": [
-            "code-davinci-002",
             "text-davinci-003",
-            "code-cushman-002",
-            "text-curie-001"
+            "text-curie-001",
+            "code-davinci-002",
+            "code-cushman-002"
           ],
-          "default": "code-davinci-002",
+          "default": "text-davinci-003",
           "description": "Which GPT3 model to use",
           "order": 1
         },

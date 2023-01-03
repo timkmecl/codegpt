@@ -11,7 +11,7 @@ This Visual Studio Code extension allows you to use the [official OpenAI API](ht
 
 <br>
 
-*This is currently a work-in-progress. You can also try [ChatGPT extension](https://github.com/timkmecl/chatgpt) which is smarter, but the setup is more complicated and it may not work (403/429 errors)*
+*This is currently a work-in-progress, if there are any problems please let me know. You can also try [ChatGPT extension](https://github.com/timkmecl/chatgpt-vscode) which is smarter, but the setup is more complicated and it may not work (403/429 errors)*
 
 <br>
 
@@ -20,6 +20,10 @@ This Visual Studio Code extension allows you to use the [official OpenAI API](ht
 ## Features
 - 💡 **Ask general questions** or use code snippets from the editor to query ChatGPT via an input box in the sidebar
 - 🖱️ Right click on a code selection and run one of the context menu **shortcuts**
+	- automatically write documentation for your code
+	- explain the selected code
+	- refactor or optimize it
+	- find problems with it
 - 💻 View ChatGPT's responses in a panel next to the editor
 - 📝 **Insert code snippets** from the AI's response into the active editor by clicking on them
 

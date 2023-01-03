@@ -25,7 +25,7 @@ export function activate(context: vscode.ExtensionContext) {
 		pasteOnClick: config.get('pasteOnClick') || false,
 		maxTokens: config.get('maxTokens') || 500,
 		temperature: config.get('temperature') || 0.5,
-		model: config.get('model') || 'code-davinci-002'
+		model: config.get('model') || 'text-davinci-003'
 	});
 
 	// Register the provider with the extension's context
@@ -52,7 +52,7 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.commands.registerCommand('codegpt.refactor', () => commandHandler('promptPrefix.refactor')),
 		vscode.commands.registerCommand('codegpt.optimize', () => commandHandler('promptPrefix.optimize')),
 		vscode.commands.registerCommand('codegpt.findProblems', () => commandHandler('promptPrefix.findProblems')),
-		vscode.commands.registerCommand('codegpt.documentation', () => commandHandler('promptPrefix.documentation')),
+		vscode.commands.registerCommand('codegpt.documentation', () => commandHandler('promptPrefix.documentation'))
 	);
 
 
