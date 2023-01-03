@@ -51,7 +51,8 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.commands.registerCommand('codegpt.explain', () => commandHandler('promptPrefix.explain')),
 		vscode.commands.registerCommand('codegpt.refactor', () => commandHandler('promptPrefix.refactor')),
 		vscode.commands.registerCommand('codegpt.optimize', () => commandHandler('promptPrefix.optimize')),
-		vscode.commands.registerCommand('codegpt.findProblems', () => commandHandler('promptPrefix.findProblems'))
+		vscode.commands.registerCommand('codegpt.findProblems', () => commandHandler('promptPrefix.findProblems')),
+		vscode.commands.registerCommand('codegpt.documentation', () => commandHandler('promptPrefix.documentation')),
 	);
 
 
@@ -73,6 +74,8 @@ export function activate(context: vscode.ExtensionContext) {
 		} else if (event.affectsConfiguration('codegpt.temperature')) {
 			const config = vscode.workspace.getConfiguration('codegpt');
 			provider.setSettings({ temperature: config.get('temperature') || 0.5 });
+		} else if (event.affectsConfiguration('codegpt.documentation')) {
+			const config = vscode.workspace.getConfiguration('codegpt');
 		}
 	});
 }
@@ -243,7 +246,7 @@ class CodeGPTViewProvider implements vscode.WebviewViewProvider {
 				response = completion.data.choices[0].text || '';
 				response += `\n\n---\n`;
 				if (completion.data.choices[0].finish_reason === 'length') {
-					response += `\n[WARNING] The response was truncated because it reached the maximum number of tokens. You may want to increase the maxTokens setting.`;
+					response += `\n[WARNING] The response was truncated because it reached the maximum number of tokens. You may want to increase the maxTokens setting.\n\n`;
 				}
 				response += `Tokens used: ${completion.data.usage?.total_tokens}`;
 

@@ -32,7 +32,8 @@
     "onCommand:codegpt.explain",
     "onCommand:codegpt.refactor",
     "onCommand:codegpt.optimize",
-    "onCommand:codegpt.problems"
+    "onCommand:codegpt.findProblems",
+    "onCommand:codegpt.documentation"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -56,6 +57,10 @@
       {
         "command": "codegpt.optimize",
         "title": "CodeGPT: Optimize selection"
+      },
+      {
+        "command": "codegpt.documentation",
+        "title": "CodeGPT: Write documentation"
       },
       {
         "command": "codegpt.resetSession",
@@ -88,6 +93,11 @@
           "command": "codegpt.optimize",
           "when": "editorHasSelection",
           "group": "codegpt-menu-group@5"
+        },
+        {
+          "command": "codegpt.documentation",
+          "when": "editorHasSelection",
+          "group": "codegpt-menu-group@6"
         }
       ],
       "commandPalette": [
@@ -108,6 +118,10 @@
         },
         {
           "command": "codegpt.optimize",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "codegpt.documentation",
           "when": "editorHasSelection"
         },
         {
@@ -157,7 +171,7 @@
         "codegpt.maxTokens": {
           "type": "number",
           "default": 500,
-          "description": "Maximum number of tokens per request",
+          "description": "Maximum number of tokens inside response per request",
           "order": 2
         },
         "codegpt.temperature": {
@@ -180,27 +194,33 @@
         },
         "codegpt.promptPrefix.refactor": {
           "type": "string",
-          "default": "Refactor this code and explain what's changed: ",
+          "default": "Refactor this code and then explain what's changed: ",
           "description": "The prompt prefix used for refactoring the selected code",
           "order": 6
         },
         "codegpt.promptPrefix.findProblems": {
           "type": "string",
-          "default": "Find problems with the following code, fix them and explain what was wrong (Do not change anything else): ",
+          "default": "Find problems with the following code, fix them and explain what was wrong (Do not change anything else, if there are no problems say so): ",
           "description": "The prompt prefix used for finding problems in the selected code",
           "order": 7
         },
         "codegpt.promptPrefix.optimize": {
           "type": "string",
-          "default": "Optimize the following code: ",
+          "default": "Optimize the following code if there is anything to improve, if not say so: ",
           "description": "The prompt prefix used for optimizing the selected code",
           "order": 8
+        },
+        "codegpt.promptPrefix.documentation": {
+          "type": "string",
+          "default": "Write documentation for the following code: ",
+          "description": "The prompt prefix used for writing documentation for the selected code",
+          "order": 9
         },
         "codegpt.selectedInsideCodeblock": {
           "type": "boolean",
           "default": true,
           "description": "Append selected code as a codeblock (```...code...```) instead of plain text",
-          "order": 9
+          "order": 10
         }
       }
     }
