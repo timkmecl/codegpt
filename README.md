@@ -6,7 +6,7 @@ This Visual Studio Code extension allows you to use the [official OpenAI API](ht
 
 ### Links:
 
-- **[VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=timkmecl.codegpt)**
+- **[VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=timkmecl.codegpt3)**
 - **[Github](https://github.com/timkmecl/codegpt)**
 
 <br>
