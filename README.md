@@ -11,7 +11,7 @@ This Visual Studio Code extension allows you to use the [official OpenAI API](ht
 
 <br>
 
-*This is currently a work-in-progress, if there are any problems please let me know. You can also try [ChatGPT extension](https://github.com/timkmecl/chatgpt-vscode) which is smarter, but the setup is more complicated and it may not work (403/429 errors)*
+*This is currently a work-in-progress, if there are any problems please let me know. You can also try [ChatGPT extension](https://github.com/timkmecl/chatgpt-vscode) ([marketplace](https://marketplace.visualstudio.com/items?itemName=timkmecl.chatgpt)) which is smarter, but the setup is more complicated and it may not work (403/429 errors)*
 
 <br>
 
