@@ -198,7 +198,7 @@ class CodeGPTViewProvider implements vscode.WebviewViewProvider {
 
 		// focus gpt activity from activity bar
 		if (!this._view) {
-			await vscode.commands.executeCommand('chatgpt.chatView.focus');
+			await vscode.commands.executeCommand('codegpt.chatView.focus');
 		} else {
 			this._view?.show?.(true);
 		}
