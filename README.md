@@ -1,5 +1,10 @@
 # GPT3 extension for VSCode
 
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/timkmecl.codegpt3)](https://marketplace.visualstudio.com/items?itemName=timkmecl.codegpt3)
+[![Visual Studio Marketplace Rating (Stars)](https://img.shields.io/visual-studio-marketplace/stars/timkmecl.codegpt3)](https://marketplace.visualstudio.com/items?itemName=timkmecl.codegpt3)
+[![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/timkmecl.codegpt3)](https://marketplace.visualstudio.com/items?itemName=timkmecl.codegpt3)
+[![Github Stars](https://img.shields.io/github/stars/timkmecl/codegpt)](https://github.com/timkmecl/codegpt)
+
 This Visual Studio Code extension allows you to use the [official OpenAI API](https://openai.com/api/) to generate code or natural language responses from OpenAI's [GPT3/GPT3.5](https://en.wikipedia.org/wiki/GPT-3) to your questions, right within the editor.
 
 🚀✨ Supercharge your coding with AI-powered assistance. Automatically write new code from scratch, ask questions, get explanations, refactor code, find bugs and more!
