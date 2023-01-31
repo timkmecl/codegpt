@@ -153,7 +153,7 @@
       "properties": {
         "codegpt.apiKey": {
           "type": "string",
-          "markdownDescription": "API key from [OpenAI](https://beta.openai.com/account/api-keys)",
+          "markdownDescription": "API key from [OpenAI](https://platform.openai.com/account/api-keys)",
           "order": 0
         },
         "codegpt.model": {
