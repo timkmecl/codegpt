@@ -1,11 +1,11 @@
-# GPT3 extension for VSCode
+# GPT3 and ChatGPT extension for VSCode
 
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/timkmecl.codegpt3)](https://marketplace.visualstudio.com/items?itemName=timkmecl.codegpt3)
 [![Visual Studio Marketplace Rating (Stars)](https://img.shields.io/visual-studio-marketplace/stars/timkmecl.codegpt3)](https://marketplace.visualstudio.com/items?itemName=timkmecl.codegpt3)
 [![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/timkmecl.codegpt3)](https://marketplace.visualstudio.com/items?itemName=timkmecl.codegpt3)
 [![Github Stars](https://img.shields.io/github/stars/timkmecl/codegpt)](https://github.com/timkmecl/codegpt)
 
-This Visual Studio Code extension allows you to use the [official OpenAI API](https://openai.com/api/) to generate code or natural language responses from OpenAI's [GPT3/GPT3.5](https://en.wikipedia.org/wiki/GPT-3) to your questions, right within the editor.
+This Visual Studio Code extension allows you to use the [official OpenAI API](https://openai.com/api/) to generate code or natural language responses to your questions from OpenAI's **ChatGPT** or **GPT3**, right within the editor.
 
 🚀✨ Supercharge your coding with AI-powered assistance. Automatically write new code from scratch, ask questions, get explanations, refactor code, find bugs and more!
 
@@ -14,13 +14,12 @@ This Visual Studio Code extension allows you to use the [official OpenAI API](ht
 - **[VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=timkmecl.codegpt3)**
 - **[Github](https://github.com/timkmecl/codegpt)**
 
+
+### 📢 **New:** Now supports ChatGPT! Just go to the extension settings and select the `ChatGPT` model (default for new installations - if it doesn't work, change the model in the extension settings).
 <br>
 
-<a href="https://www.buymeacoffee.com/timkmecl" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px" ></a>
+<a href="https://www.buymeacoffee.com/timkmecl" target="_blank"><img src="resources/buy-default-yellow-small.png" alt="Buy Me A Coffee" style="height: 40px" ></a>
 
-*This extension is free, however you need an OpenAI Account. You can also try [ChatGPT extension](https://github.com/timkmecl/chatgpt-vscode) ([marketplace](https://marketplace.visualstudio.com/items?itemName=timkmecl.chatgpt)) which is smarter but currently doesn't work for most users.*
-
-<br>
 
 <img src="examples/main.png" alt="Refactoring selected code using chatGPT"/>
 
@@ -56,6 +55,7 @@ To use this extension, you will need an API key from OpenAI. To obtain one, foll
 
 When you create a new account, you receive $18 in free credits for the API which you must use in the first 90 days. You can see pricing information [here](https://openai.com/api/pricing/). 1000 tokens are about 700 words, and you can see the token count for each request at the end of the response in the sidebar.
 
+As of January 31, 2023, only the `code-*` models and `ChatGPT` are avilable for free! You only spend your credits when you use the `text-*` models. You can **change the model** in the extension settings.
 
 ## Using the Extension
 
@@ -81,6 +81,10 @@ You can select some code in the editor, right click on it and choose one of the 
 
 `Ask CodeGPT` is also available when nothing is selected. For the other four commands, you can **customize the exact prompt** that will be sent to the AI by editing the extension settings in VSCode Preferences.
 
+There, you can also **change the model** that will be used for the requests. The default is `ChatGPT` which is smartest and currently free, but you can change it to another model (`text-davinci-003` is the best of the paid ones, `code-davinci-002` of the free) if it doesn't work. You can also **change the temperature** and **number of tokens** that will be returned by the AI. The default values are 0.5 and 1024, respectively.
+
 ---
 
-Please note that this extension is currently a proof of concept and may have some limitations or bugs. We welcome feedback and contributions to improve the extension. Also check out the [ChatGPT extension](https://github.com/timkmecl/codegpt) which is smarter, but the setup is more complicated and it may not work (403/429 errors).
+Please note that this extension is currently a proof of concept and may have some limitations or bugs. We welcome feedback and contributions to improve the extension. Also check out the [ChatGPT extension](https://github.com/timkmecl/codegpt) which is smarter, but the setup is more complicated and it may not work (403/429 errors). 
+
+If you enjoy this extension, please consider [buying me a coffee ☕️](https://www.buymeacoffee.com/timkmecl) to support my work! 

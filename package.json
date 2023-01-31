@@ -1,8 +1,8 @@
 {
   "name": "codegpt3",
   "displayName": "CodeGPT: write and improve code using AI",
-  "description": "Use GPT3 right inside the IDE to enhance and automate your coding with AI-powered assistance",
-  "version": "1.0.1",
+  "description": "Use ChatGPT or GPT3 right inside the IDE to enhance and automate your coding with AI-powered assistance",
+  "version": "1.1.0",
   "publisher": "timkmecl",
   "icon": "resources/extensionIcon.png",
   "license": "MIT",
@@ -159,24 +159,25 @@
         "codegpt.model": {
           "type": "string",
           "enum": [
+            "ChatGPT",
             "text-davinci-003",
             "text-curie-001",
             "code-davinci-002",
             "code-cushman-002"
           ],
-          "default": "text-davinci-003",
+          "default": "ChatGPT",
           "description": "Which GPT3 model to use",
           "order": 1
         },
         "codegpt.maxTokens": {
           "type": "number",
-          "default": 500,
+          "default": 1024,
           "description": "Maximum number of tokens inside response per request",
           "order": 2
         },
         "codegpt.temperature": {
           "type": "number",
-          "default": 0.7,
+          "default": 0.5,
           "description": "Temperature to use for the GPT3 (between 0 (conservative) and 1 (creative))",
           "order": 3
         },

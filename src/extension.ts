@@ -74,8 +74,9 @@ export function activate(context: vscode.ExtensionContext) {
 		} else if (event.affectsConfiguration('codegpt.temperature')) {
 			const config = vscode.workspace.getConfiguration('codegpt');
 			provider.setSettings({ temperature: config.get('temperature') || 0.5 });
-		} else if (event.affectsConfiguration('codegpt.documentation')) {
+		} else if (event.affectsConfiguration('codegpt.model')) {
 			const config = vscode.workspace.getConfiguration('codegpt');
+			provider.setSettings({ model: config.get('model') || 'text-davinci-003' });
 		}
 	});
 }
@@ -226,27 +227,49 @@ class CodeGPTViewProvider implements vscode.WebviewViewProvider {
 			// Increment the message number
 			this._currentMessageNumber++;
 
-			let agent = this._openai;
-
 			try {
 				let currentMessageNumber = this._currentMessageNumber;
 
 				// Send the search prompt to the OpenAI API and store the response
-				const completion = await this._openai.createCompletion({
-					model: this._settings.model || 'code-davinci-002',
-					prompt: searchPrompt,
-					temperature: this._settings.temperature,
-					max_tokens: this._settings.maxTokens,
-					stop: ['\nUSER: ', '\nUSER', '\nASSISTANT']
-				});
+
+				let completion;
+				if (this._settings.model !== 'ChatGPT') {
+					completion = await this._openai.createCompletion({
+						model: this._settings.model || 'code-davinci-002',
+						prompt: searchPrompt,
+						temperature: this._settings.temperature,
+						max_tokens: this._settings.maxTokens,
+						stop: ['\nUSER: ', '\nUSER', '\nASSISTANT']
+					});
+				} else {
+					completion = await this._openai.createCompletion({
+						model: 'text-chat-davinci-002-20230126',
+						prompt: searchPrompt,
+						temperature: this._settings.temperature,
+						max_tokens: this._settings.maxTokens,
+						stop: ['\n\n\n', '<|im_end|>']
+					});
+				}
 
 				if (this._currentMessageNumber !== currentMessageNumber) {
 					return;
 				}
 
-
 				response = completion.data.choices[0].text || '';
+
+				// close unclosed codeblocks
+				// Use a regular expression to find all occurrences of the substring in the string
+				const REGEX_CODEBLOCK = new RegExp('\`\`\`', 'g');
+				const matches = response.match(REGEX_CODEBLOCK);
+				// Return the number of occurrences of the substring in the response, check if even
+				const count = matches ? matches.length : 0;
+				if (count % 2 !== 0) {
+					//  append ``` to the end to make the last code block complete
+					response += '\n\`\`\`';
+				}
+
 				response += `\n\n---\n`;
+				// add error message if max_tokens reached
 				if (completion.data.choices[0].finish_reason === 'length') {
 					response += `\n[WARNING] The response was truncated because it reached the maximum number of tokens. You may want to increase the maxTokens setting.\n\n`;
 				}
@@ -257,7 +280,7 @@ class CodeGPTViewProvider implements vscode.WebviewViewProvider {
 				if (error.response) {
 					console.log(error.response.status);
 					console.log(error.response.data);
-					e = `${error.response.status} ${error.response.data}`;
+					e = `${error.response.status} ${error.response.data.message}`;
 				} else {
 					console.log(error.message);
 					e = error.message;
