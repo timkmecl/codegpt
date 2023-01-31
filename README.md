@@ -1,21 +1,22 @@
-# GPT3 and ChatGPT extension for VSCode
+# CodeGPT: GPT3 and ChatGPT extension for VSCode
 
 [![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/timkmecl.codegpt3)](https://marketplace.visualstudio.com/items?itemName=timkmecl.codegpt3)
 [![Visual Studio Marketplace Rating (Stars)](https://img.shields.io/visual-studio-marketplace/stars/timkmecl.codegpt3)](https://marketplace.visualstudio.com/items?itemName=timkmecl.codegpt3)
 [![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/timkmecl.codegpt3)](https://marketplace.visualstudio.com/items?itemName=timkmecl.codegpt3)
 [![Github Stars](https://img.shields.io/github/stars/timkmecl/codegpt)](https://github.com/timkmecl/codegpt)
 
-This Visual Studio Code extension allows you to use the [official OpenAI API](https://openai.com/api/) to generate code or natural language responses to your questions from OpenAI's **ChatGPT** or **GPT3**, right within the editor.
+This Visual Studio Code extension allows you to use the [official OpenAI API](https://openai.com/api/) to generate code or natural language responses to your questions from OpenAI's **GPT3** or **ChatGPT**, right within the editor.
 
-🚀✨ Supercharge your coding with AI-powered assistance. Automatically write new code from scratch, ask questions, get explanations, refactor code, find bugs and more!
+Supercharge your coding with AI-powered assistance! Automatically write new code from scratch, ask questions, get explanations, refactor code, find bugs and more 🚀✨ 
+
+
+#### 📢 **New:** Now supports ChatGPT! Just go to the extension settings and select the `ChatGPT` model *(default for new installations - if it doesn't work, change to another model in the extension settings)*.
 
 ### Links:
 
-- **[VSCode Marketplace](https://marketplace.visualstudio.com/items?itemName=timkmecl.codegpt3)**
-- **[Github](https://github.com/timkmecl/codegpt)**
+- **[Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=timkmecl.codegpt3)**
+- **[Github Repository](https://github.com/timkmecl/codegpt)**
 
-
-### 📢 **New:** Now supports ChatGPT! Just go to the extension settings and select the `ChatGPT` model (default for new installations - if it doesn't work, change the model in the extension settings).
 <br>
 
 <a href="https://www.buymeacoffee.com/timkmecl" target="_blank"><img src="resources/buy-default-yellow-small.png" alt="Buy Me A Coffee" style="height: 40px" ></a>
@@ -85,6 +86,6 @@ There, you can also **change the model** that will be used for the requests. The
 
 ---
 
-Please note that this extension is currently a proof of concept and may have some limitations or bugs. We welcome feedback and contributions to improve the extension. Also check out the [ChatGPT extension](https://github.com/timkmecl/codegpt) which is smarter, but the setup is more complicated and it may not work (403/429 errors). 
+Please note that this extension is currently a proof of concept and may have some limitations or bugs. We welcome feedback and contributions to improve the extension. Also check out the [ChatGPT extension](https://github.com/timkmecl/chatgpt-vscode) which is smarter, but the setup is more complicated and it may not work (403/429 errors). 
 
 If you enjoy this extension, please consider [buying me a coffee ☕️](https://www.buymeacoffee.com/timkmecl) to support my work! 
