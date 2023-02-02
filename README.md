@@ -10,7 +10,7 @@ This Visual Studio Code extension allows you to use the [official OpenAI API](ht
 Supercharge your coding with AI-powered assistance! Automatically write new code from scratch, ask questions, get explanations, refactor code, find bugs and more 🚀✨ 
 
 
-#### 📢 **New:** Now supports ChatGPT! Just go to the extension settings and select the `ChatGPT` model *(default for new installations - if it doesn't work, change to another model in the extension settings)*.
+#### 📢 **New:** Now supports ChatGPT! Just go to the extension settings and select the `ChatGPT` model there *(if it doesn't work, change to another model in the extension settings)*.
 
 ### Links:
 
