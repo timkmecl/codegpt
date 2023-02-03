@@ -1,8 +1,8 @@
 {
   "name": "codegpt3",
   "displayName": "CodeGPT: write and improve code using AI",
-  "description": "Use ChatGPT or GPT3 right inside the IDE to enhance and automate your coding with AI-powered assistance",
-  "version": "1.1.1",
+  "description": "Use GPT3 or ChatGPT right inside the IDE to enhance and automate your coding with AI-powered assistance",
+  "version": "1.1.2",
   "publisher": "timkmecl",
   "icon": "resources/extensionIcon.png",
   "license": "MIT",
@@ -157,7 +157,7 @@
           "order": 0
         },
         "codegpt.model": {
-          "type": "text-davinci-003",
+          "type": "string",
           "enum": [
             "ChatGPT",
             "text-davinci-003",
@@ -165,7 +165,7 @@
             "code-davinci-002",
             "code-cushman-002"
           ],
-          "default": "ChatGPT",
+          "default": "text-davinci-003",
           "description": "Which GPT3 model to use",
           "order": 1
         },

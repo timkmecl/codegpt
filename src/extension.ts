@@ -243,7 +243,7 @@ class CodeGPTViewProvider implements vscode.WebviewViewProvider {
 					});
 				} else {
 					completion = await this._openai.createCompletion({
-						model: 'text-chat-davinci-002-20230126',
+						model: 'text-chat-davinci-002-20221122',
 						prompt: searchPrompt,
 						temperature: this._settings.temperature,
 						max_tokens: this._settings.maxTokens,
