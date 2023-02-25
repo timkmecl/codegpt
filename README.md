@@ -10,7 +10,7 @@ This Visual Studio Code extension allows you to use the [official OpenAI API](ht
 Supercharge your coding with AI-powered assistance! Automatically write new code from scratch, ask questions, get explanations, refactor code, find bugs and more 🚀✨ 
 
 
-#### 📢 **New:** Now supports ChatGPT! Just go to the extension settings and select the `ChatGPT` model there *(if it doesn't work, change to another model in the extension settings)*.
+*📢 **Warning:** `ChatGPT` model was removed from the API, please change to another model in the extension settings.*
 
 ### Links:
 
@@ -18,8 +18,6 @@ Supercharge your coding with AI-powered assistance! Automatically write new code
 - **[Github Repository](https://github.com/timkmecl/codegpt)**
 
 <br>
-
-<a href="https://www.buymeacoffee.com/timkmecl" target="_blank"><img src="resources/buy-default-yellow-small.png" alt="Buy Me A Coffee" style="height: 40px" ></a>
 
 
 <img src="examples/main.png" alt="Refactoring selected code using chatGPT"/>
@@ -86,6 +84,6 @@ There, you can also **change the model** that will be used for the requests. The
 
 ---
 
-Please note that this extension is currently a proof of concept and may have some limitations or bugs. We welcome feedback and contributions to improve the extension. Also check out the [ChatGPT extension](https://github.com/timkmecl/chatgpt-vscode) which is smarter, but the setup is more complicated and it may not work (403/429 errors). 
+Please note that this extension is currently a proof of concept and may have some limitations or bugs. We welcome feedback and contributions to improve the extension. Also check out the [ChatGPT extension](https://github.com/timkmecl/chatgpt-vscode) which is smarter, but the setup is more complicated and it may not work (403/429 errors). If you enjoy this extension, please consider [buying me a coffee ☕️](https://www.buymeacoffee.com/timkmecl) to support my work! 
 
-If you enjoy this extension, please consider [buying me a coffee ☕️](https://www.buymeacoffee.com/timkmecl) to support my work! 
+<a href="https://www.buymeacoffee.com/timkmecl" target="_blank"><img src="resources/buy-default-yellow-small.png" alt="Buy Me A Coffee" style="height: 40px" ></a>
